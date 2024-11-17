@@ -2,6 +2,7 @@
 import EyeIcon from "./EyeIcon.vue";
 import LockIcon from "./LockIcon.vue";
 import PhoneIcon from "./PhoneIcon.vue";
+import SearchIcon from "./SearchIcon.vue";
 
 export default {
   emits: ['send-value'],
@@ -15,6 +16,18 @@ export default {
       required: false
     },
     label: {
+      type: String,
+      required: false
+    },
+    search: {
+      type: Boolean,
+      required: false
+    },
+    text: {
+      type: Boolean,
+      required: false
+    },
+    placeholder: {
       type: String,
       required: false
     }
@@ -36,7 +49,8 @@ export default {
   components: {
     EyeIcon,
     LockIcon,
-    PhoneIcon
+    PhoneIcon,
+    SearchIcon
   },
   mounted() {
     if(this.$props.phone){
@@ -69,6 +83,14 @@ export default {
         />
       <PhoneIcon class="phone__icon" />
     </div>
+    <div v-if="text" class="search">
+      <input 
+      type="text"
+      v-model="inputValue"
+      :placeholder="placeholder"
+      @input="handleChange">
+      <SearchIcon v-if="search" class="search__icon"/>
+    </div>
   </div>
 </template>
 
@@ -81,6 +103,7 @@ input {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
+  color: #999999;
 }
 input:focus-visible {
   outline: none;
@@ -138,5 +161,13 @@ line-height: 18px;
   position: absolute;
   left: 0;
   bottom: 7px;
+}
+.search {
+  position: relative;
+}
+.search__icon {
+  position: absolute;
+  top: 17px;
+  right: 0;
 }
 </style>

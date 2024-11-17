@@ -5,6 +5,8 @@ import router from "./router";
 import store from "./store";
 import VueCompositionApi from "@vue/composition-api";
 import VueTheMask from "vue-the-mask";
+import "./assets/fonts/fonts.scss";
+
 
 Vue.use(VueTheMask);
 

@@ -7,6 +7,7 @@
 <style lang="scss">
 @import "~@fontsource/inter/index.css";
 
+
 #app {
 	font-family: "Inter", sans-serif;
 	-webkit-font-smoothing: antialiased;
